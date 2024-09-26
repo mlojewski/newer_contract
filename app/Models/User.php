@@ -40,6 +40,20 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+
+    public function Ads()
+    {
+        return $this->hasMany('\App\Models\Ad');
+    }
+
+    public function Person()
+    {
+        return $this->belongsTo('\App\Models\Person');
+    }
+
+    public function Organization()
+    {
+        return $this->belongsTo('\App\Models\Organization');
+    }
 }
