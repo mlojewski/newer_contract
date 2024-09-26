@@ -2,21 +2,39 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\City;
+use App\Models\Home;
+use App\Models\Language;
+use App\Models\Organization;
+use App\Models\OrganizationType;
+use App\Models\Person;
+use App\Models\PersonPhoto;
+use App\Models\OrganizationLogo;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([BlogSeeder::class]);
+        $this->call([CountrySeeder::class]);
+        City::factory(5)->create();
+        OrganizationType::factory(5)->create();
+        $this->call([PersonTypeSeeder::class]);
+        Language::factory(5)->create();
+        $this->call([SportSeeder::class]);
+        $this->call([AdSeeder::class]);
+        $this->call([GenderSeeder::class]);
+        Person::factory(1)->create();
+        Organization::factory(1)->create();
+        PersonPhoto::factory(1)->create();
+        OrganizationLogo::factory(1)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Home::factory(1)->create();
     }
 }
