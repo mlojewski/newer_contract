@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ad;
 use App\Models\Blog;
 use App\Models\City;
+use App\Models\DualCareer;
 use App\Models\Home;
 use App\Models\PersonType;
 use App\Models\Sport;
@@ -17,6 +18,7 @@ class HomeController extends Controller
     public function index()
     {
         $content = Home::first();
+        $dual = DualCareer::first();
         $blogs = HomeController::blogs();
         $promotedAds = (new AdController)->promoted();
         $personTypes  = PersonType::with(['Ads' => ['Sport'], 'Icon'])->withCount('Ads')->get();
@@ -32,6 +34,7 @@ class HomeController extends Controller
 
         return view('index', [
             'content' => $content,
+            'dual' => $dual,
             'blogs' => $blogs,
             'promoted_ads' => $promotedAds,
             'person_types' => $personTypes,

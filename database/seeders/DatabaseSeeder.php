@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\City;
+use App\Models\DualCareer;
 use App\Models\Home;
 use App\Models\Language;
 use App\Models\Organization;
@@ -10,6 +11,7 @@ use App\Models\OrganizationType;
 use App\Models\Person;
 use App\Models\PersonPhoto;
 use App\Models\OrganizationLogo;
+use Database\Factories\DualCareerFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -34,6 +36,7 @@ class DatabaseSeeder extends Seeder
         Organization::factory(1)->create();
         PersonPhoto::factory(1)->create();
         OrganizationLogo::factory(1)->create();
+        DualCareer::factory(1)->create();
 
         Home::factory(1)->create();
     }
