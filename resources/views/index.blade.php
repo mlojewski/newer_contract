@@ -1869,153 +1869,153 @@
 {{--=======================================-->--}}
 
 
-{{--<!--=====================================--}}
-{{--            INTRO PART START--}}
-{{--=======================================-->--}}
-{{--<section class="intro-part">--}}
-{{--    <div class="container">--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-lg-12">--}}
-{{--                <div class="section-center-heading">--}}
-{{--                    <h2>{{$content->dual_title}}</h2>--}}
-{{--                    <p>{{$content->dual_content}}</p>--}}
-{{--                    <a href="ad-post.html" class="btn btn-outline">--}}
-{{--                        <i class="fas fa-plus-circle"></i>--}}
-{{--                        <span>post your ad</span>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</section>--}}
-{{--<!--=====================================--}}
-{{--            INTRO PART END--}}
-{{--=======================================-->--}}
+<!--=====================================
+            INTRO PART START
+=======================================-->
+<section class="intro-part">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-center-heading">
+                    <h2>{{$dual->title}}</h2>
+                    <p>{{$content->dual_content}}</p>
+                    <a href="ad-post.html" class="btn btn-outline">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Read more on dual career</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=====================================
+            INTRO PART END
+=======================================-->
 
 
-{{--<!--=====================================--}}
-{{--             PRICE PART START--}}
-{{--=======================================-->--}}
-{{--<section class="price-part">--}}
-{{--    <div class="container">--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-lg-12">--}}
-{{--                <div class="section-center-heading">--}}
-{{--                    <h2>{{$content->pricing_title}}</h2>--}}
-{{--                    <p>{{$content->pricing_content}}</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-md-6 col-lg-4">--}}
-{{--                <div class="price-card">--}}
-{{--                    <div class="price-head">--}}
-{{--                        <i class="flaticon-bicycle"></i>--}}
-{{--                        <h3>€00</h3>--}}
-{{--                        <h4>Free Plan</h4>--}}
-{{--                    </div>--}}
-{{--                    <ul class="price-list">--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            <p>In 2023 all general ads are free</p>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            <p>Valid for 21 days</p>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-times"></i>--}}
-{{--                            <p>No possibility to refresh ad</p>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-times"></i>--}}
-{{--                            <p>No social media boost</p>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            <p>Limited Support</p>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                    <div class="price-btn">--}}
-{{--                        <a href="{{route('user.forms')}}" class="btn btn-inline">--}}
-{{--                            <i class="fas fa-sign-in-alt"></i>--}}
-{{--                            <span>Register Now</span>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-md-6 col-lg-4">--}}
-{{--                <div class="price-card price-active">--}}
-{{--                    <div class="price-head">--}}
-{{--                        <i class="flaticon-car-wash"></i>--}}
-{{--                        <h3>€18</h3>--}}
-{{--                        <h4>Standard Plan</h4>--}}
-{{--                    </div>--}}
-{{--                    <ul class="price-list">--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            <p>Ad listed in promoted section</p>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            <p>35 days validity</p>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            <p>One 14 days refresh available</p>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            <p>Boost on FB, Li and IG</p>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            <p>Premium  Support</p>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                    <div class="price-btn">--}}
-{{--                        <a href="user-form.html" class="btn btn-inline">--}}
-{{--                            <i class="fas fa-sign-in-alt"></i>--}}
-{{--                            <span>Register Now</span>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-md-6 col-lg-4">--}}
-{{--                <div class="price-card">--}}
-{{--                    <div class="price-head">--}}
-{{--                        <i class="flaticon-airplane"></i>--}}
-{{--                        <h3>50%</h3>--}}
-{{--                        <h4>Discount</h4>--}}
-{{--                    </div>--}}
-{{--                    <ul class="price-list">--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            <p>For all ads directed to ladies</p>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            <p>For all ads featuring dual career</p>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            <p>For every 3rd ad you post on NewContract</p>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                    <div class="price-btn">--}}
-{{--                        <a href="user-form.html" class="btn btn-inline">--}}
-{{--                            <i class="fas fa-sign-in-alt"></i>--}}
-{{--                            <span>Register Now</span>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</section>--}}
-{{--<!--=====================================--}}
-{{--             PRICE PART END--}}
-{{--=======================================-->--}}
+<!--=====================================
+             PRICE PART START
+=======================================-->
+<section class="price-part">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-center-heading">
+                    <h2>{{$content->pricing_title}}</h2>
+                    <p>{{$content->pricing_content}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="price-card">
+                    <div class="price-head">
+                        <i class="flaticon-bicycle"></i>
+                        <h3>€00</h3>
+                        <h4>Free Plan</h4>
+                    </div>
+                    <ul class="price-list">
+                        <li>
+                            <i class="fas fa-plus"></i>
+                            <p>In 2023 all general ads are free</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-plus"></i>
+                            <p>Valid for 21 days</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-times"></i>
+                            <p>No possibility to refresh ad</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-times"></i>
+                            <p>No social media boost</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-plus"></i>
+                            <p>Limited Support</p>
+                        </li>
+                    </ul>
+                    <div class="price-btn">
+                        <a href="{{route('user.forms')}}" class="btn btn-inline">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Register Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="price-card price-active">
+                    <div class="price-head">
+                        <i class="flaticon-car-wash"></i>
+                        <h3>€18</h3>
+                        <h4>Standard Plan</h4>
+                    </div>
+                    <ul class="price-list">
+                        <li>
+                            <i class="fas fa-plus"></i>
+                            <p>Ad listed in promoted section</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-plus"></i>
+                            <p>35 days validity</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-plus"></i>
+                            <p>One 14 days refresh available</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-plus"></i>
+                            <p>Boost on FB, Li and IG</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-plus"></i>
+                            <p>Premium  Support</p>
+                        </li>
+                    </ul>
+                    <div class="price-btn">
+                        <a href="user-form.html" class="btn btn-inline">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Register Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="price-card">
+                    <div class="price-head">
+                        <i class="flaticon-airplane"></i>
+                        <h3>50%</h3>
+                        <h4>Discount</h4>
+                    </div>
+                    <ul class="price-list">
+                        <li>
+                            <i class="fas fa-plus"></i>
+                            <p>For all ads directed to ladies</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-plus"></i>
+                            <p>For all ads featuring dual career</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-plus"></i>
+                            <p>For every 3rd ad you post on NewContract</p>
+                        </li>
+                    </ul>
+                    <div class="price-btn">
+                        <a href="user-form.html" class="btn btn-inline">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Register Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=====================================
+             PRICE PART END
+=======================================-->
 
 
 
