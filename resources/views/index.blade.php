@@ -27,7 +27,7 @@
     <div class="container">
         <div class="suggest-slider slider-arrow">
             @foreach($person_types as $type)
-                <a href="ad-list-column3.html" class="suggest-card">
+                <a href="/ad/filter?type={{$type->name}}" class="suggest-card">
                     <img src="{{Storage::url($type->icon->path)}}" alt="car">
                     <h6>{{$type->name}}</h6>
                     <p>{{count($type->ads)}} ads</p>
@@ -51,9 +51,9 @@
                 <div class="section-side-heading">
                     <h2>{{$content->featured_title}}</h2>
                     <p>{{$content->featured_content}}</p>
-                    <a href="ad-list-column3.html" class="btn btn-inline">
+                    <a href="/ad/filter?is_promoted=1" class="btn btn-inline">
                         <i class="fas fa-eye"></i>
-                        <span>View all featured</span>
+                        <span>Pokaż wszystkie promowane</span>
                     </a>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                     @foreach($promoted_ads as $ad)
 
                         <div class="feature-card">
-                            <a href="#" class="feature-img">
+                            <a href="/ad/{{$ad->id}}" class="feature-img">
                                 <img src="{{Storage::url($ad->user->organization->logo->path)}}" alt="feature">
                             </a>
                             <div class="cross-inline-badge feature-badge">
@@ -127,7 +127,7 @@
                     <div class="category-card">
                         <div class="category-head">
                             <img src="images/category/electronics.jpg" alt="category">
-                            <a href="#" class="category-content">
+                            <a href="/ad/filter?sport={{$sport->id}}" class="category-content">
                                 <h4>{{$sport->name}}</h4>
                                 <p>({{count($sport->ads)}})</p>
                             </a>
@@ -139,7 +139,7 @@
                                 @if($ad['sport'] == $sport->name)
                                     @foreach($ad['personTypes'] as $type)
                                         @if($type['count'] != 0)
-                                            <li><a href="#"><h6>{{$type['name']}}</h6><p>{{$type['count']}}</p></a></li>
+                                            <li><a href="/ad/filter?person_type={{$type['name']}}"><h6>{{$type['name']}}</h6><p>{{$type['count']}}</p></a></li>
                                         @endif
 
                                     @endforeach
@@ -451,72 +451,72 @@
             CITY PART END
 =======================================-->
 
-{{--<!--=====================================--}}
-{{--             BLOG PART START--}}
-{{--=======================================-->--}}
-{{--<section class="blog-part">--}}
-{{--    <div class="container">--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-lg-12">--}}
-{{--                <div class="section-center-heading">--}}
-{{--                    <h2>{{$content->blog_title}}</h2>--}}
-{{--                    <p>{{$content->blog_content}}</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-lg-12">--}}
-{{--                <div class="blog-slider slider-arrow">--}}
+<!--=====================================
+             BLOG PART START
+=======================================-->
+<section class="blog-part">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-center-heading">
+                    <h2>{{$content->blog_title}}</h2>
+                    <p>{{$content->blog_content}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="blog-slider slider-arrow">
 
-{{--                    @foreach($blogs as $blog)--}}
-{{--                        <div class="blog-card">--}}
-{{--                            <div class="blog-img">--}}
-{{--                                <img src="{{Storage::url($blog->blog_photos[0]->path)}}" alt="blog">--}}
-{{--                                <div class="blog-overlay">--}}
-{{--                                    <span class="marketing">{{$blog->category}}</span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="blog-content">--}}
-{{--                                <a href="#" class="blog-avatar">--}}
-{{--                                    <img src="{{asset('new contract favicon.png')}}" alt="avatar">--}}
-{{--                                </a>--}}
-{{--                                <ul class="blog-meta">--}}
+                    @foreach($blogs as $blog)
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <img src="{{Storage::url($blog->blog_photos[0]->path)}}" alt="blog">
+                                <div class="blog-overlay">
+                                    <span class="marketing">{{$blog->category}}</span>
+                                </div>
+                            </div>
+                            <div class="blog-content">
+                                <a href="#" class="blog-avatar">
+                                    <img src="{{asset('new_contract_favicon.png')}}" alt="avatar">
+                                </a>
+                                <ul class="blog-meta">
 
-{{--                                    <li>--}}
-{{--                                        <i class="fas fa-clock"></i>--}}
-{{--                                        <p>{{$blog->created_at->format('d-m-Y')}}</p>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                                <div class="blog-text">--}}
-{{--                                    <h4><a href="{{route('blog.single', ['id' => $blog->id])}}">{{$blog->title}}</a></h4>--}}
-{{--                                    <p>{{Str::limit($blog->body, 150)}}</p>--}}
-{{--                                </div>--}}
-{{--                                <a href="{{route('blog.single', ['id' => $blog->id])}}" class="blog-read">--}}
-{{--                                    <span>read more</span>--}}
-{{--                                    <i class="fas fa-long-arrow-alt-right"></i>--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
+                                    <li>
+                                        <i class="fas fa-clock"></i>
+                                        <p>{{$blog->created_at->format('d-m-Y')}}</p>
+                                    </li>
+                                </ul>
+                                <div class="blog-text">
+                                    <h4><a href="{{route('blog.single', ['id' => $blog->id])}}">{{$blog->title}}</a></h4>
+                                    <p>{{Str::limit($blog->body, 150)}}</p>
+                                </div>
+                                <a href="{{route('blog.single', ['id' => $blog->id])}}" class="blog-read">
+                                    <span>read more</span>
+                                    <i class="fas fa-long-arrow-alt-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
 
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-lg-12">--}}
-{{--                <div class="blog-btn">--}}
-{{--                    <a href="{{route('blog.index')}}" class="btn btn-inline">--}}
-{{--                        <i class="fas fa-eye"></i>--}}
-{{--                        <span>view all blogs</span>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</section>--}}
-{{--<!--=====================================--}}
-{{--             BLOG PART END--}}
-{{--=======================================-->--}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="blog-btn">
+                    <a href="{{route('blog.index')}}" class="btn btn-inline">
+                        <i class="fas fa-eye"></i>
+                        <span>view all blogs</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=====================================
+             BLOG PART END
+=======================================-->
 
 
 

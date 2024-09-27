@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Ad;
+use App\Models\Country;
 use App\Models\PersonType;
+use App\Models\Sport;
 use Illuminate\Http\Request;
 
 class FilterController extends Controller
@@ -22,14 +24,25 @@ class FilterController extends Controller
            }
        }
 
-       if($request->person_type || $request->person_type != 0) {
-
-           foreach ($ads as $key => $ad) {
-               if(!$ad->personTypes->contains(PersonType::find($request->person_type))) {
-                   unset($ads[$key]);
-               }
+        if ($request->is_promoted || $request->is_promoted != 0) {
+            foreach ($ads as $key => $ad) {
+                if ($ad->is_promoted != $request->is_promoted) {
+                    unset($ads[$key]);
+                }
             }
-       }
+        }
+
+
+        if ($request->person_type || $request->person_type != 0) {
+            $type = PersonType::where('name', $request->person_type)->first();
+
+            foreach ($ads as $key => $ad) {
+                if(!$ad->personTypes->contains(PersonType::find($type->id))) {
+                    unset($ads[$key]);
+                }
+            }
+        }
+
        if ($request->city) {
 
            foreach ($ads as $key => $ad) {
@@ -62,6 +75,16 @@ class FilterController extends Controller
                 }
             }
         }
-        return view ('ad.index', ['ads' => $ads]);
+
+        $sports = Sport::all();
+        $countries = Country::all();
+        $personTypes = PersonType::all();
+
+        return view ('ad.index', [
+            'ads' => $ads,
+            'sports' => $sports,
+            'countries' => $countries,
+            'person_types' => $personTypes,
+        ]);
     }
 }
