@@ -30,7 +30,7 @@
                                         <button class="btn btn-danger" type="submit"> Usuń</button>
                                     </form>
                                     <form method="GET" action = "{{route('sport.edit', ['id' => $sport->id])}}">
-                                        <button class="btn btn-warning" type="submit"> Edit</button>
+                                        <button class="btn btn-warning" type="submit"> Edytuj</button>
                                     </form>
                                 </li>
                             @endforeach

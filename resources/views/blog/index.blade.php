@@ -199,7 +199,7 @@
                                 </div>
                                 <div class="blog-content">
                                     <p class="blog-avatar">
-                                        <img src="{{asset('../images/new contract favicon.png')}}" alt="avatar">
+                                        <img src="{{asset('../images/new_contract_favicon.png')}}" alt="avatar">
                                     </p>
                                     <ul class="blog-meta">
 

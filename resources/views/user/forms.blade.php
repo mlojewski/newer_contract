@@ -1,6 +1,6 @@
-@extends('layouts.app')
+{{--@extends('layouts.app')--}}
 
-@section('content')
+{{--@section('content')--}}
     <link rel="stylesheet" href="{{asset('css/custom/user-form.css')}}">
 
      <section class="user-form-part">
@@ -241,4 +241,4 @@
         </div>
     </div>
     </section>
-@endsection
+{{--@endsection--}}

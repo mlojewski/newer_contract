@@ -27,7 +27,7 @@
                 CSS LINK PART START
     =======================================-->
     <!-- FAVICON -->
-    <link rel="icon" href="{{asset('new contract favicon.png')}}">
+    <link rel="icon" href="{{asset('images/new_contract_favicon.png')}}">
 
     <!-- FONTS -->
     <link rel="stylesheet" href="{{asset('fonts/flaticon/flaticon.css')}}">
@@ -64,17 +64,18 @@
                         <span>Login / Register</span>
                     </a>
                 @else()
-                    <a href="/logout" class="header-widget header-user">
-                        <img src="{{asset('images/user.png')}}" alt="user">
-                        <span>Logout</span>
-                    </a>
+                    <form method="post" action="/logout" class="mt-6 space-y-6">
+                        @csrf
+                        <button class="btn btn-inline post-btn" type="submit"> Logout</button>
+
+                    </form>
                 @endif
 
                 <button type="button" class="header-widget search-btn">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
-            @if(!auth()->user()->is_admin)
+            @if(!Auth::user() || !auth()->user()->is_admin)
                 <form class="header-form" action="{{route('ad.filter')}}">
                     <div class="header-search">
                         <button type="submit" title="Search Submit "><i class="fas fa-search"></i></button>
@@ -97,7 +98,7 @@
                                 <select name="person_type" id="person_type">
                                     <option value=0>Any</option>
                                     @foreach($person_types as $type)
-                                        <option value="{{$type->id}}">{{$type->name}}</option>
+                                        <option value="{{$type->name}}">{{$type->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

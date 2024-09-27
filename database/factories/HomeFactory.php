@@ -17,10 +17,10 @@ class HomeFactory extends Factory
     public function definition()
     {
         return [
-           'featured_title' => fake()->text(30),
-            'featured_content' => fake()->text(150),
-            'top_sports_title' => fake()->text(30),
-            'top_sports_content' => fake()->text(150),
+           'featured_title' => 'Promoted Ads',
+            'featured_content' => 'Check out the ads from our most loyal partners.',
+            'top_sports_title' => 'Top sports',
+            'top_sports_content' => 'Check out which sports provide our users with most opportunities.',
             'partners_title' => fake()->text(30),
             'partners_content' => fake()->text(150),
             'top_countries_title' => fake()->text(30),
