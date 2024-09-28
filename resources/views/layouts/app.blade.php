@@ -88,7 +88,7 @@
                                 <label class="form-label" >Sport</label><br>
                                 <select name="sport" id="sport">
                                     <option value=0>Any</option>
-                                    @foreach($sports as $sport)
+                                    @foreach(\App\Models\Sport::all() as $sport)
                                         <option value="{{$sport->id}}">{{$sport->name}}</option>
                                     @endforeach
                                 </select>
@@ -97,7 +97,7 @@
                                 <label class="form-label">User type</label><br>
                                 <select name="person_type" id="person_type">
                                     <option value=0>Any</option>
-                                    @foreach($person_types as $type)
+                                    @foreach(\App\Models\PersonType::all() as $type)
                                         <option value="{{$type->name}}">{{$type->name}}</option>
                                     @endforeach
                                 </select>
@@ -300,7 +300,7 @@
                 <a href="{{route('panel')}}" class="btn btn-inline post-btn"> <span>panel</span></a>
 
                     @elseif(auth()->user() && !auth()->user()->is_admin)
-                        <a href="{{route('profile')}}" class="btn btn-inline post-btn">
+                        <a href="{{route('person_panel.panel',['id' => auth()->user()->id])}}" class="btn btn-inline post-btn">
                             <i class="fas fa-person-booth"></i>
                             <span>Your profile</span>
                         </a>

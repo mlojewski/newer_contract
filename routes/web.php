@@ -20,6 +20,7 @@ use App\Http\Controllers\PersonTypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SportController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PersonPanelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/person/update/{id}', [PersonController::class, 'update'])->name('person.update');
     Route::get('/organization/ads/{id}', [OrganizationController::class, 'adsManagement'])->name('organization.ads');
     Route::get('/user/show/{id}', [UserController::class, 'show'])->name('user.show');
+    Route::get('person/panel/{id}', [PersonPanelController::class, 'index'])->name('person_panel.panel');
 
     Route::middleware('is_admin')->group(function () {
         Route::get('/dual/edit', [DualCareerController::class, 'edit'])->name('dual.edit');
