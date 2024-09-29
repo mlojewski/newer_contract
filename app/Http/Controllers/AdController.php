@@ -148,4 +148,12 @@ class AdController extends Controller
         }
         return;
     }
+
+    public function deactivate($id)
+    {
+        $ad = Ad::where('id', $id)->first();
+        $ad->is_valid = false;
+        $ad->save();
+        return redirect()->back();
+    }
 }

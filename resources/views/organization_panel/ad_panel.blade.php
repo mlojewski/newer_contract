@@ -1,4 +1,4 @@
-@extends('layouts.admin_panel')
+@extends('layouts.organization_panel')
 
 @section('panel_content')
     <!--=====================================
@@ -10,21 +10,19 @@
                 <div class="col-lg-12">
                     <div class="account-card">
                         <div class="account-title">
-                            <h3>Cities</h3>
-                            <a href="{{route('city.create')}}">Add</a>
+                            <h3>Ads</h3>
+
                         </div>
                         <ul class="account-card-list">
-                            <li><h4>city</h4><p>In </p><p>actions</p></li>
-                            @foreach($cities as $city)
-                                <li><h5>{{$city->name}}</h5><p>{{$city->country->name}}</p>
-                                    <form method="POST" action = "{{route('city.delete', ['id' => $city->id])}}">
+                            <li><h4>Title</h4><p>Is active?</p><p>Actions</p></li>
+                            @foreach($ads as $ad)
+                                <li><h5><a href="/ad/edit/{{$ad->id}}">{{$ad->title}}</a></h5><p>@if($ad->is_valid == 1) Yes @else No @endif</p>
+                                    <p>
+                                    <form method="Get" action = "{{route('ad.deactivate', ['id' => $ad->id])}}">
                                         @csrf
-                                        @method('delete')
-                                        <button class="btn btn-danger" type="submit"> Usuń</button>
+                                        <button class="btn btn-danger" type="submit"> Deactivate</button>
                                     </form>
-                                    <form method="GET" action = "{{route('city.edit', ['id' => $city->id])}}">
-                                        <button class="btn btn-warning" type="submit"> Edit</button>
-                                    </form>
+
                                 </li>
                             @endforeach
                         </ul>

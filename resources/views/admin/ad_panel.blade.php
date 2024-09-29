@@ -14,9 +14,9 @@
 
                         </div>
                         <ul class="account-card-list">
-                            <li><h4>Title</h4><p>Owner</p><p>Actions</p></li>
+                            <li><h4>Title</h4><p>Owner</p><p>Is promoted?</p><p>Is Active?</p><p>Actions</p></li>
                             @foreach($ads as $ad)
-                                <li><h5><a href="/ad/{{$ad->id}}">{{$ad->title}}</a></h5><p>{{$ad->user->name}} </p>
+                                <li><h5><a href="/ad/{{$ad->id}}">{{$ad->title}}</a></h5><p>{{$ad->user->name}} </p><p>{{$ad->is_promoted}}</p><p>{{$ad->is_valid}}</p>
                                     <p>
                                     <form method="POST" action = "{{route('ad.delete', ['id' => $ad->id])}}">
                                         @csrf

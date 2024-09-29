@@ -14,6 +14,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\OrganizationPanelController;
 use App\Http\Controllers\OrganizationTypeController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PersonTypeController;
@@ -53,6 +54,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/organization/ads/{id}', [OrganizationController::class, 'adsManagement'])->name('organization.ads');
     Route::get('/user/show/{id}', [UserController::class, 'show'])->name('user.show');
     Route::get('person/panel/{id}', [PersonPanelController::class, 'index'])->name('person_panel.panel');
+    Route::get('/organization/panel/{id}', [OrganizationPanelController::class, 'index'])->name('organization_panel.panel');
+    Route::get('/organization/ad_panel', [OrganizationPanelController::class, 'adManagement'])->name('organization_panel.ad_panel');
+
 
     Route::middleware('is_admin')->group(function () {
         Route::get('/dual/edit', [DualCareerController::class, 'edit'])->name('dual.edit');
@@ -122,6 +126,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/ad/update/{id}', [AdController::class, 'update'])->name('ad.update');
     Route::get('/ad/show/{id}', [AdController::class, 'show'])->name('ad.single');
     Route::get('ad/list', [AdController::class, 'index'])->name('ad.index');
+    Route::get('ad/deactivate/{id}', [AdController::class, 'deactivate'])->name('ad.deactivate');
 });
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
