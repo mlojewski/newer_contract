@@ -299,11 +299,16 @@
             @if(auth()->user() && auth()->user()->is_admin)
                 <a href="{{route('panel')}}" class="btn btn-inline post-btn"> <span>panel</span></a>
 
-                    @elseif(auth()->user() && !auth()->user()->is_admin)
+                    @elseif(auth()->user() && !auth()->user()->is_admin && auth()->user()->person_id != null)
                         <a href="{{route('person_panel.panel',['id' => auth()->user()->id])}}" class="btn btn-inline post-btn">
                             <i class="fas fa-person-booth"></i>
                             <span>Your profile</span>
                         </a>
+                    @elseif(auth()->user() && auth()->user()->organization_id != null && !auth()->user()->is_admin)
+                <a href="{{route('organization_panel.panel',['id' => auth()->user()->id])}}" class="btn btn-inline post-btn">
+                    <i class="fas fa-person-booth"></i>
+                    <span>Your profile</span>
+                </a>
                     @else
                         <a href="/forms" class="btn btn-inline post-btn">
                             <i class="fas fa-person-booth"></i>

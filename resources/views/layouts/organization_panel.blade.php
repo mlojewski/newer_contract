@@ -34,8 +34,8 @@
                             </div>
                             <div class="dash-intro">
 
-                                <h4><a href="#">{{auth()->user()->person->name}} {{auth()->user()->person->last_name}}</a></h4>
-                                <h5>{{auth()->user()->person->sport->name}}</h5>
+                                <h4><a href="#">{{auth()->user()->organization->name}} </a></h4>
+{{--                                <h5>{{auth()->user()->organization->sport->name}}</h5>--}}
                                 <ul class="dash-meta">
                                     <li>
                                         <i class="fas fa-phone-alt"></i>
@@ -47,7 +47,7 @@
                                     </li>
                                     <li>
                                         <i class="fas fa-map-marker-alt"></i>
-                                        <span>{{auth()->user()->person->residence}}, {{auth()->user()->person->billing_address}}</span>
+                                        <span>{{auth()->user()->organization->location}}, {{auth()->user()->organization->billing_address}}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -82,10 +82,10 @@
                     <div class="col-lg-12">
                         <div class="dash-menu-list">
                             <ul>
-                                <li><a href="/person/panel/{{auth()->user()->id}}">Your data</a></li>
+                                <li><a href="/organization/panel/{{auth()->user()->id}}">Your data</a></li>
                                 <li><a href="#">Your messages</a></li>
-                                <li><a href="#">Your ads</a></li>
-                                <li><a href="#">Your blank CV</a></li>
+                                <li><a href="{{route('organization_panel.ad_panel')}}">Your ads</a></li>
+                                <li><a href="#">Your invoices</a></li>
                             </ul>
                         </div>
                     </div>

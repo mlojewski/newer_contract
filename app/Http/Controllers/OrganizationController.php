@@ -108,7 +108,7 @@ class OrganizationController extends Controller
         if ($user->is_admin == 1) {
             return redirect('/admin/organization_panel');
         }
-        return redirect('profile');
+        return redirect('/');
     }
 
     public function adsManagement($id)
