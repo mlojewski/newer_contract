@@ -118,6 +118,8 @@ class PersonController extends Controller
         $person->sport_id = $request->sport;
         $person->country_id = $request->country;
         $person->career = $request->career;
+        $person->person_type_id = $request->type;
+
         if ($request->sport_additional) {
             $person->sport_additional = $request->sport_additional;
         }
@@ -140,7 +142,7 @@ class PersonController extends Controller
         if ($user->is_admin == 1) {
             return redirect('/admin/player_panel');
         }
-         return redirect('profile');
+         return redirect('/');
 
     }
 }
