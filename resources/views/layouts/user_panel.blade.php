@@ -83,7 +83,7 @@
                         <div class="dash-menu-list">
                             <ul>
                                 <li><a href="/person/panel/{{auth()->user()->id}}">Your data</a></li>
-                                <li><a href="#">Your messages</a></li>
+                                <li><a href="{{route('person_panel.message_panel')}}">Your messages</a></li>
                                 <li><a href="#">Your ads</a></li>
                                 <li><a href="#">Your blank CV</a></li>
                             </ul>

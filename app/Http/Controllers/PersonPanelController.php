@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\Gender;
 use App\Models\Language;
+use App\Models\Message;
 use App\Models\OrganizationType;
 use App\Models\PersonType;
 use App\Models\Sport;
@@ -32,6 +33,16 @@ class PersonPanelController extends Controller
             'organization_types' => $organizationTypes,
             'person_types' => $personTypes,
             'languages' => $languages
+        ]);
+    }
+    public function messageManagement() {
+        $received = Message::where('recipient',Auth::id())->orderBy('created_at', 'DESC')->get();
+
+        $sent = Message::where('sender',Auth::id())->orderBy('created_at', 'DESC')->get();
+
+        return view('person_panel.message_panel', [
+            'received' => $received,
+            'sent' => $sent
         ]);
     }
 }
