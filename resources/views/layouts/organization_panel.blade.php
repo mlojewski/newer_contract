@@ -83,7 +83,7 @@
                         <div class="dash-menu-list">
                             <ul>
                                 <li><a href="/organization/panel/{{auth()->user()->id}}">Your data</a></li>
-                                <li><a href="#">Your messages</a></li>
+                                <li><a href="{{route('organization_panel.message_panel')}}">Your messages</a></li>
                                 <li><a href="{{route('organization_panel.ad_panel')}}">Your ads</a></li>
                                 <li><a href="#">Your invoices</a></li>
                             </ul>

@@ -6,6 +6,7 @@ use App\Models\Ad;
 use App\Models\Country;
 use App\Models\Gender;
 use App\Models\Language;
+use App\Models\Message;
 use App\Models\OrganizationType;
 use App\Models\PersonType;
 use App\Models\Sport;
@@ -42,6 +43,17 @@ class OrganizationPanelController extends Controller
         $ads = Ad::where('user_id',Auth::id())->get();
         return view('organization_panel.ad_panel', [
             'ads' => $ads,
+        ]);
+    }
+
+    public function messageManagement() {
+        $received = Message::where('recipient',Auth::id())->orderBy('created_at', 'DESC')->get();
+
+        $sent = Message::where('sender',Auth::id())->orderBy('created_at', 'DESC')->get();
+
+        return view('organization_panel.message_panel', [
+            'received' => $received,
+            'sent' => $sent
         ]);
     }
 }

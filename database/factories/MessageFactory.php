@@ -17,7 +17,13 @@ class MessageFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => fake()->streetAddress,
+            'message_content' => fake()->text,
+            'is_viewed' => false,
+            'sender' => 2,
+            'recipient' => 3,
+            'created_at' => now()->subDay(),
+            'updated_at' => now(),
         ];
     }
 }

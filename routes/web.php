@@ -53,10 +53,13 @@ Route::middleware('auth')->group(function () {
     Route::put('/person/update/{id}', [PersonController::class, 'update'])->name('person.update');
     Route::get('/organization/ads/{id}', [OrganizationController::class, 'adsManagement'])->name('organization.ads');
     Route::get('/user/show/{id}', [UserController::class, 'show'])->name('user.show');
+    Route::get('/person/message_panel', [PersonPanelController::class, 'messageManagement'])->name('person_panel.message_panel');
     Route::get('person/panel/{id}', [PersonPanelController::class, 'index'])->name('person_panel.panel');
     Route::get('/organization/panel/{id}', [OrganizationPanelController::class, 'index'])->name('organization_panel.panel');
     Route::get('/organization/ad_panel', [OrganizationPanelController::class, 'adManagement'])->name('organization_panel.ad_panel');
-
+    Route::get('/organization/message_panel', [OrganizationPanelController::class, 'messageManagement'])->name('organization_panel.message_panel');
+    Route::get('/message/show/{id}', [MessageController::class, 'show'])->name('message.single');
+    Route::delete('/message/delete/{id}', [MessageController::class, 'delete'])->name('message.delete');
 
     Route::middleware('is_admin')->group(function () {
         Route::get('/dual/edit', [DualCareerController::class, 'edit'])->name('dual.edit');

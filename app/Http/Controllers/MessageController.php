@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Message;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class MessageController extends Controller
 {
     public function list($recipient)
     {
-        $messages = Message::with('sender')->where('recipient', $recipient)->find();
+        $messages = Message::with('sender')->where('recipient', $recipient)->orderBy('created_at', 'desc')->find();
 
         return $messages;
     }
@@ -18,16 +19,24 @@ class MessageController extends Controller
     {
         Message::destroy($id);
 
-        return;
+        return redirect('/')->with('pop_up', 'Message deleted');
     }
 
     public function show($id)
     {
-        $message = Message::with('sender')->where('id', $id)->first();
+        $message = Message::where('id', $id)->first();
         $message->is_viewed = true;
         $message->save();
 
-        return $message;
+        $recipient = User::where('id', $message->recipient)->first();
+        $sender = User::where('id', $message->sender)->first();
+
+        return view('message.single', [
+            'message' => $message,
+            'recipient' => $recipient,
+            'sender' => $sender
+        ]);
+
     }
 
     public function store(Request $request)
