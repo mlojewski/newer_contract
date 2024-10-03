@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
@@ -36,7 +37,10 @@ class Fresh extends Command
         (new UserController)->createAdmin();
         (new UserController)->createOrganization();
         (new UserController)->createPerson();
+
         (new AdController)->matchAuthor();
+        (new MessageController)->matchAuthor();
+
         $this->info('DB refreshed and reseeded');
         return Command::SUCCESS;
     }

@@ -11,7 +11,7 @@
                     <div class="account-card">
                         <div class="account-title">
                             <h3>Ads</h3>
-
+                            <a href="{{route('ad.create')}}">Add</a>
                         </div>
                         <ul class="account-card-list">
                             <li><h4>Title</h4><p>Is active?</p><p>Actions</p></li>
