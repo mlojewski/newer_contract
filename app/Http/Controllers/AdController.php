@@ -51,7 +51,6 @@ class AdController extends Controller
 
     public function store(Request $request)
     {
-
         $ad = new Ad();
 
         $ad->is_promoted = false;
@@ -70,7 +69,10 @@ class AdController extends Controller
 
         $ad->PersonTypes()->attach($request->person_type);
 
-        return redirect('/profile');
+        $messageController = new MessageController();
+        $messageController->newAd(auth()->id());
+
+        return redirect('/')->with('pop_up', 'Ad created and send to admin verification');
     }
 
     public function delete($id)

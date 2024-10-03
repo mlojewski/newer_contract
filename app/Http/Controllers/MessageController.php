@@ -61,4 +61,30 @@ class MessageController extends Controller
         return redirect()->back()->with('pop_up', 'Message sent');
 
     }
+
+    public function newAd(int $user)
+    {
+
+        $message = new Message();
+        $message->sender = $user;
+        $message->recipient = User::where('is_admin', true)->first()->id;
+
+        $message->title = 'New Ad';
+        $message->message_content = 'User '.$user.' has created a new ad, please validate';
+        $message->is_viewed = false;
+        $message->save();
+
+        return;
+    }
+    public function matchAuthor()
+    {
+        $ads = Message::all();
+
+        foreach ($ads as $ad) {
+            $ad->sender = 2;
+            $ad->recipient = 3;
+            $ad->save();
+        }
+        return;
+    }
 }

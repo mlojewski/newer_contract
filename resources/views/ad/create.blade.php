@@ -111,7 +111,6 @@
                                         </ul>
                                     </div>
                                 </div>
-
                                 <div class="form-group text-right">
                                     <button class="btn btn-inline">
                                         <i class="fas fa-check-circle"></i>

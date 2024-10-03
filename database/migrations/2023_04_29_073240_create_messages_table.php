@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('message_content');
-            $table->unsignedBigInteger('sender');
+            $table->unsignedBigInteger('sender')->nullable();
             $table->foreign('sender')->references('id')->on('users');
-            $table->unsignedBigInteger('recipient');
+            $table->unsignedBigInteger('recipient')->nullable();
             $table->foreign('recipient')->references('id')->on('users');
             $table->boolean('is_viewed');
             $table->timestamps();

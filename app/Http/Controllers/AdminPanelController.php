@@ -88,7 +88,7 @@ class AdminPanelController extends Controller
 
     public function adManagement()
     {
-        $ads = Ad::with('User')->get();
+        $ads = Ad::with('User')->orderBy('created_at', 'desc')->get();
 
         return view('admin.ad_panel', ['ads' => $ads]);
     }
