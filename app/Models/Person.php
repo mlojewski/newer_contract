@@ -43,4 +43,9 @@ class Person extends Model
     {
         return $this->hasOne('\App\Models\User');
     }
+
+    public function Ads()
+    {
+        return $this->belongsToMany('\App\Models\Ads');
+    }
 }

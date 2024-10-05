@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ad;
 use App\Models\Country;
 use App\Models\Gender;
 use App\Models\Language;
@@ -43,6 +44,27 @@ class PersonPanelController extends Controller
         return view('person_panel.message_panel', [
             'received' => $received,
             'sent' => $sent
+        ]);
+    }
+
+    public function adManagement()
+    {
+        $active = Ad::where('is_valid', true) // Sprawdzenie, czy ogłoszenie jest aktywne
+        ->whereHas('people', function ($query) {
+            $query->where('person_id', Auth::user()->person_id); // Filtrowanie na podstawie osoby
+        })
+            ->orderBy('created_at', 'DESC') // Sortowanie wg daty utworzenia
+            ->get();
+        $inactive = Ad::where('is_valid', false) // Sprawdzenie, czy ogłoszenie jest aktywne
+        ->whereHas('people', function ($query) {
+            $query->where('person_id', Auth::user()->person_id); // Filtrowanie na podstawie osoby
+        })
+            ->orderBy('created_at', 'DESC') // Sortowanie wg daty utworzenia
+            ->get();
+
+        return view('person_panel.ad_panel', [
+            'active' => $active,
+            'inactive' => $inactive
         ]);
     }
 }

@@ -19,6 +19,7 @@ use App\Http\Controllers\OrganizationTypeController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PersonTypeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RecruitmentController;
 use App\Http\Controllers\SportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonPanelController;
@@ -60,6 +61,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/organization/message_panel', [OrganizationPanelController::class, 'messageManagement'])->name('organization_panel.message_panel');
     Route::get('/message/show/{id}', [MessageController::class, 'show'])->name('message.single');
     Route::delete('/message/delete/{id}', [MessageController::class, 'delete'])->name('message.delete');
+    Route::post('/recruitment/store', [RecruitmentController::class, 'store'])->name('recruitment.store');
+    Route::get('/person/ad_panel', [PersonPanelController::class, 'adManagement'])->name('person_panel.ad_panel');
 
     Route::middleware('is_admin')->group(function () {
         Route::get('/dual/edit', [DualCareerController::class, 'edit'])->name('dual.edit');
