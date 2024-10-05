@@ -38,10 +38,12 @@
                     </div>
 
                     <!-- NUMBER CARD -->
-                    <button type="button" id="green-button" class="common-card number">
-                        <h3>Apply now<span></span></h3>
-                        <i class="fas fa-clock"></i>
-                    </button>
+
+                        <button type="button" id="green-button" class="common-card number">
+                            <h3>Apply now<span></span></h3>
+                            <i class="fas fa-clock"></i>
+                        </button>
+
 
                     <!-- AUTHOR CARD -->
                     <div class="common-card">
@@ -258,17 +260,18 @@
                         <p class="ad-details-desc">{{$ad->requirements}}</p>
                     </div>
 
+@if(auth()->user()->person_id != null || auth()->user()->is_admin == 1)
                     <div class="common-card" id="form">
                         <div class="card-header">
                             <h5 class="card-title">Apply</h5>
-
                         </div>
-                        <form class="review-form" action="{{route('message.store')}}" method="POST">
+                        <form class="review-form" action="{{route('recruitment.store')}}" method="POST">
                             @csrf
                             <p class="ad-details-desc">There is no need to fill in your contact data, as you are logged to you account, those will be sent automatically</p>
                             <div class="review-form-grid">
                                 <div class="form-group">
                                     <input type="hidden" class="form-control" name="sender" value={{Auth::id()}}>
+                                    <input type="hidden" class="form-control" name="ad" value={{$ad->id}}>
                                     <input type="hidden" class="form-control" name="recipient" value={{$ad->user->id}}>
                                     <input type="hidden" class="form-control" name="title" value="Application for your {{$ad->title}} ad">
                                 </div>
@@ -283,7 +286,7 @@
                             </button>
                         </form>
                     </div>
-
+                    @endif
                 </div>
             </div>
         </div>

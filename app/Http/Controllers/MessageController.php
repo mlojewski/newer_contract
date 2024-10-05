@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ad;
 use App\Models\Message;
+use App\Models\Person;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -86,5 +88,18 @@ class MessageController extends Controller
             $ad->save();
         }
         return;
+    }
+
+    public function create($title, $content, $sender, $recipient)
+    {
+        $message = new Message();
+        $message->title = $title;
+        $message->message_content = $content;
+        $message->sender = $sender;
+        $message->recipient = $recipient;
+        $message->is_viewed = false;
+
+        $message->save();
+
     }
 }

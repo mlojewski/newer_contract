@@ -28,4 +28,10 @@ class Ad extends Model
     {
         return $this->belongsToMany('\App\Models\PersonType', 'ads_person_types');
     }
+
+    public function People()
+    {
+        return $this->belongsToMany('\App\Models\Person', 'ads_people');
+    }
+
 }
