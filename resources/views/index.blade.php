@@ -139,7 +139,7 @@
                                 @if($ad['sport'] == $sport->name)
                                     @foreach($ad['personTypes'] as $type)
                                         @if($type['count'] != 0)
-                                            <li><a href="/ad/filter?person_type={{$type['name']}}"><h6>{{$type['name']}}</h6><p>{{$type['count']}}</p></a></li>
+                                            <li><a href="/ad/filter?person_type={{$type['name']}}&sport={{$ad['sport_id']}}"><h6>{{$type['name']}}</h6><p>{{$type['count']}}</p></a></li>
                                         @endif
 
                                     @endforeach

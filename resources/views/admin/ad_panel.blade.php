@@ -13,22 +13,42 @@
                             <h3>Ads</h3>
 
                         </div>
-                        <ul class="account-card-list">
-                            <li><h4>Title</h4><p>Owner</p><p>Is promoted?</p><p>Is Active?</p><p>Actions</p></li>
+                        <table class="table-list">
+                            <thead class="table-head">
+                            <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Owner</th>
+                                <th scope="col">Is promoted</th>
+                                <th scope="col">Is active</th>
+                                <th scope="col" colspan="2">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody class="table-body">
                             @foreach($ads as $ad)
-                                <li><h5><a href="/ad/{{$ad->id}}">{{$ad->title}}</a></h5><p>{{$ad->user->name}} </p><p>{{$ad->is_promoted}}</p><p>{{$ad->is_valid}}</p>
-                                    <p>
-                                    <form method="POST" action = "{{route('ad.delete', ['id' => $ad->id])}}">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="btn btn-danger" type="submit"> Delete</button>
-                                    </form>
-                                    <form method="GET" action = "{{route('ad.edit', ['id' => $ad->id])}}">
-                                        <button class="btn btn-warning" type="submit"> Edit</button>
-                                    </form>
-                                </li>
+                                <tr>
+                                    <td class="table-price"> <a href="/ad/{{$ad->id}}">{{$ad->title}}</a></td>
+                                    <td class="table-price">{{$ad->user->name}} </td>
+                                    <td class="table-number">{{$ad->is_promoted}} </td>
+                                    <td class="table-number">{{$ad->is_valid}} </td>
+                                    <td class="table-number">
+                                        <form method="POST" action = "{{route('ad.delete', ['id' => $ad->id])}}">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger" type="submit"> Delete</button>
+                                        </form>
+                                    </td>
+                                    <td class="table-number">
+
+                                        <form method="GET" action = "{{route('ad.edit', ['id' => $ad->id])}}">
+                                            <button class="btn btn-warning" type="submit"> Edit</button>
+                                        </form>
+                                    </td>
+                                </tr>
+
                             @endforeach
-                        </ul>
+                            </tbody>
+
+                        </table>
                     </div>
                 </div>
             </div>

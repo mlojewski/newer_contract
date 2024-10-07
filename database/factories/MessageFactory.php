@@ -20,8 +20,8 @@ class MessageFactory extends Factory
             'title' => fake()->streetAddress,
             'message_content' => fake()->text,
             'is_viewed' => false,
-            'sender' => null,
-            'recipient' => null,
+            'sender_id' => null,
+            'recipient_id' => null,
             'created_at' => now()->subDay(),
             'updated_at' => now(),
         ];

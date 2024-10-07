@@ -25,7 +25,7 @@ class AdFactory extends Factory
             'salary' => rand(40, 2345),
             'salary_per' => fake()->dayOfWeek,
             'is_valid' => true,
-            'city_id' => rand(1, 5),
+            'city_id' => rand(1, 7),
             'sport_id' => rand(1, 5),
             ];
     }

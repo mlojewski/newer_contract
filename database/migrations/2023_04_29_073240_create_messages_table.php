@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('message_content');
-            $table->unsignedBigInteger('sender')->nullable();
-            $table->foreign('sender')->references('id')->on('users');
-            $table->unsignedBigInteger('recipient')->nullable();
-            $table->foreign('recipient')->references('id')->on('users');
+            $table->unsignedBigInteger('sender_id')->nullable();
+            $table->foreign('sender_id')->references('id')->on('users');
+            $table->unsignedBigInteger('recipient_id')->nullable();
+            $table->foreign('recipient_id')->references('id')->on('users');
             $table->boolean('is_viewed');
             $table->timestamps();
         });
