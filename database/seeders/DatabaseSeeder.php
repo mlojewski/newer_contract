@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([BlogSeeder::class]);
         $this->call([CountrySeeder::class]);
-        City::factory(5)->create();
+        City::factory(7)->create();
         OrganizationType::factory(5)->create();
         $this->call([PersonTypeSeeder::class]);
         Language::factory(5)->create();

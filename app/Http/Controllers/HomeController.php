@@ -68,6 +68,7 @@ class HomeController extends Controller
             // Create an array with the sport name and total ad count
             $result = [
                 'sport' => $sport->name,
+                'sport_id' => $sport->id,
                 'total' => $adCount,
                 'personTypes' => [],
             ];

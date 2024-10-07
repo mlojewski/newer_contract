@@ -47,9 +47,9 @@ class OrganizationPanelController extends Controller
     }
 
     public function messageManagement() {
-        $received = Message::where('recipient',Auth::id())->orderBy('created_at', 'DESC')->get();
+        $received = Message::where('recipient_id',Auth::id())->with(['sender'])->orderBy('created_at', 'DESC')->get();
 
-        $sent = Message::where('sender',Auth::id())->orderBy('created_at', 'DESC')->get();
+        $sent = Message::where('sender_id',Auth::id())->orderBy('created_at', 'DESC')->get();
 
         return view('organization_panel.message_panel', [
             'received' => $received,

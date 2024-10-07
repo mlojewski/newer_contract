@@ -12,7 +12,7 @@ class MessageController extends Controller
 {
     public function list($recipient)
     {
-        $messages = Message::with('sender')->where('recipient', $recipient)->orderBy('created_at', 'desc')->find();
+        $messages = Message::with('sender')->where('recipient_id', $recipient)->orderBy('created_at', 'desc')->find();
 
         return $messages;
     }
@@ -30,8 +30,8 @@ class MessageController extends Controller
         $message->is_viewed = true;
         $message->save();
 
-        $recipient = User::where('id', $message->recipient)->first();
-        $sender = User::where('id', $message->sender)->first();
+        $recipient = User::where('id', $message->recipient_id)->first();
+        $sender = User::where('id', $message->sender_id)->first();
 
         return view('message.single', [
             'message' => $message,
@@ -48,13 +48,13 @@ class MessageController extends Controller
         $message->is_viewed = false;
 
         if ($request->contact) {
-            $message->sender = 1;
-            $message->recipient = 1;
+            $message->sender_id = 1;
+            $message->recipient_id = 1;
             $message->message_content = $request->name.' has the email '.$request->email.' and has sent the following -> '.$request->message_content;
         } else {
             $message->message_content = $request->message_content;
-            $message->sender = $request->sender;
-            $message->recipient = $request->recipient;
+            $message->sender_id = $request->sender;
+            $message->recipient_id = $request->recipient;
         }
 
 
@@ -68,8 +68,8 @@ class MessageController extends Controller
     {
 
         $message = new Message();
-        $message->sender = $user;
-        $message->recipient = User::where('is_admin', true)->first()->id;
+        $message->sender_id = $user;
+        $message->recipient_id = User::where('is_admin', true)->first()->id;
 
         $message->title = 'New Ad';
         $message->message_content = 'User '.$user.' has created a new ad, please validate';
@@ -83,8 +83,8 @@ class MessageController extends Controller
         $ads = Message::all();
 
         foreach ($ads as $ad) {
-            $ad->sender = 2;
-            $ad->recipient = 3;
+            $ad->sender_id = 2;
+            $ad->recipient_id = 3;
             $ad->save();
         }
         return;
@@ -95,8 +95,8 @@ class MessageController extends Controller
         $message = new Message();
         $message->title = $title;
         $message->message_content = $content;
-        $message->sender = $sender;
-        $message->recipient = $recipient;
+        $message->sender_id = $sender;
+        $message->recipient_id = $recipient;
         $message->is_viewed = false;
 
         $message->save();
