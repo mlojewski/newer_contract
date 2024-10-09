@@ -43,6 +43,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/ad/filter', [FilterController::class, 'adFilter'])->name('ad.filter');
+Route::get('/person/filter', [FilterController::class, 'personFilter'])->name('person.filter');
 Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
@@ -130,11 +131,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/ad/delete/{id}', [AdController::class, 'delete'])->name('ad.delete');
     Route::get('/ad/edit/{id}', [AdController::class, 'edit'])->name('ad.edit');
     Route::put('/ad/update/{id}', [AdController::class, 'update'])->name('ad.update');
-    Route::get('/ad/show/{id}', [AdController::class, 'show'])->name('ad.single');
-    Route::get('ad/list', [AdController::class, 'index'])->name('ad.index');
+
     Route::get('ad/deactivate/{id}', [AdController::class, 'deactivate'])->name('ad.deactivate');
 });
-
+Route::get('/ad/show/{id}', [AdController::class, 'show'])->name('ad.single');
+Route::get('ad/list', [AdController::class, 'index'])->name('ad.index');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.single');
 

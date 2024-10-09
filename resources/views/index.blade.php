@@ -29,6 +29,7 @@
             @foreach($person_types as $type)
                 <a href="/ad/filter?type={{$type->name}}" class="suggest-card">
                     <img src="{{Storage::url($type->icon->path)}}" alt="car">
+
                     <h6>{{$type->name}}</h6>
                     <p>{{count($type->ads)}} ads</p>
                 </a>
@@ -93,9 +94,7 @@
                     @foreach($promoted_ads as $ad)
 
                     <div class="feature-thumb"><img src="{{Storage::url($ad->user->organization->logo->path)}}" alt="feature"></div>
-                    <div class="feature-thumb"><img src="images/product/01.jpg" alt="feature"></div>
-                    <div class="feature-thumb"><img src="images/product/08.jpg" alt="feature"></div>
-                    <div class="feature-thumb"><img src="images/product/06.jpg" alt="feature"></div>
+
                     @endforeach
                 </div>
 

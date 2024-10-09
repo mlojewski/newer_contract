@@ -58,32 +58,41 @@
                 <a href="/" class="header-logo" >
                     <img id="logo" src="{{asset('poziom bez claim NEW CONTRACT (1).png')}}" alt="logo">
                 </a>
-                @if(!Auth::user())
-                    <a href="/forms" class="header-widget header-user">
-                        <img src="{{asset('images/user.png')}}" alt="user">
-                        <span>Login / Register</span>
-                    </a>
-                @else()
-                    <form method="post" action="/logout" class="mt-6 space-y-6">
-                        @csrf
-                        <button class="btn btn-inline post-btn" type="submit"> Logout</button>
+                @if(auth()->user() && auth()->user()->is_admin)
+                    <a href="{{route('panel')}}" class="btn btn-inline post-btn"> <span>panel</span></a>
 
-                    </form>
+                @elseif(auth()->user() && !auth()->user()->is_admin && auth()->user()->person_id != null)
+                    <a href="{{route('person_panel.panel',['id' => auth()->user()->id])}}" class="btn btn-inline post-btn">
+                        <i class="fas fa-person-booth"></i>
+                        <span>Your profile</span>
+                    </a>
+                @elseif(auth()->user() && auth()->user()->organization_id != null && !auth()->user()->is_admin)
+                    <a href="{{route('organization_panel.panel',['id' => auth()->user()->id])}}" class="btn btn-inline post-btn" >
+                        <i class="fas fa-person-booth"></i>
+                        <span>Your profile</span>
+                    </a>
+                @else
+                    <a href="/forms" class="btn btn-inline post-btn">
+                        <i class="fas fa-person-booth"></i>
+                        <span>Login</span>
+                    </a>
                 @endif
 
-                <button type="button" class="header-widget search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
+{{--                <button type="button" class="header-widget search-btn">--}}
+{{--                    <i class="fas fa-search"></i>--}}
+{{--                </button>--}}
             </div>
             @if(!Auth::user() || !auth()->user()->is_admin)
                 <form class="header-form" action="{{route('ad.filter')}}">
                     <div class="header-search">
                         <button type="submit" title="Search Submit "><i class="fas fa-search"></i></button>
-                        <input type="text" placeholder="Search, Whatever you needs...">
+                        <input type="text" placeholder="Filter the ads">
                         <button type="button" title="Search Option" class="option-btn"><i class="fas fa-sliders-h"></i></button>
                     </div>
                     <div class="header-option">
                         <div class="option-grid">
+                            <div class="option-group"><input type="number" name="min_salary" placeholder="Min Salary"></div>
+                            <div class="option-group"><input type="number" name="max_salary" placeholder="Max Salary"></div>
                             <div class="option-group">
                                 <label class="form-label" >Sport</label><br>
                                 <select name="sport" id="sport">
@@ -104,9 +113,61 @@
                             </div>
                             <div class="option-group"><input type="text" name="city" placeholder="City"></div>
                             <div class="option-group"><input type="text"  name="country" placeholder="Country"></div>
-                            <div class="option-group"><input type="number" name="min_salary" placeholder="Min Salary"></div>
-                            <div class="option-group"><input type="number" name="max_salary" placeholder="Max Salary"></div>
+
                             <button type="submit"><i class="fas fa-search"></i><span>Search</span></button>
+                        </div>
+                    </div>
+                </form>
+
+                <form class="header-form" action="{{route('person.filter')}}">
+                    <div class="header-search">
+                        <button type="submit" title="Search Submit "><i class="fas fa-search"></i></button>
+                        <input type="text" placeholder="Filter the users">
+                        <button type="button" title="Search Option" class="option-btn"><i class="fas fa-sliders-h"></i></button>
+                    </div>
+                    <div class="header-option">
+
+                        <div class="option-grid">
+                            <button type="submit"><i class="fas fa-search"></i><span>Search</span></button>
+                            <div class="option-group">
+                                <label class="form-label" >Sport</label><br>
+                                <select name="sport" id="sport">
+                                    <option value=0>Any</option>
+                                    @foreach(\App\Models\Sport::all() as $sport)
+                                        <option value="{{$sport->id}}">{{$sport->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label class="form-label">User type</label><br>
+                                <select name="person_type" id="person_type">
+                                    <option value=0>Any</option>
+                                    @foreach(\App\Models\PersonType::all() as $type)
+                                        <option value="{{$type->name}}">{{$type->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label class="form-label">Language</label><br>
+                                <select name="language" id="language">
+                                    <option value=0>Any</option>
+                                    @foreach(\App\Models\Language::all() as $language)
+                                        <option value="{{$language->id}}">{{$language->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label class="form-label">Gender</label><br>
+                                <select name="gender" id="gender">
+                                    <option value=0>Any</option>
+                                    @foreach(\App\Models\Gender::all() as $gender)
+                                        <option value="{{$gender->id}}">{{$gender->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+
+                            <div class="option-group"><input type="text"  name="country" placeholder="Country"></div>
                         </div>
                     </div>
                 </form>
@@ -296,25 +357,20 @@
 {{--                </ul>--}}
 
             </div>
-            @if(auth()->user() && auth()->user()->is_admin)
-                <a href="{{route('panel')}}" class="btn btn-inline post-btn"> <span>panel</span></a>
-
-                    @elseif(auth()->user() && !auth()->user()->is_admin && auth()->user()->person_id != null)
-                        <a href="{{route('person_panel.panel',['id' => auth()->user()->id])}}" class="btn btn-inline post-btn">
-                            <i class="fas fa-person-booth"></i>
-                            <span>Your profile</span>
-                        </a>
-                    @elseif(auth()->user() && auth()->user()->organization_id != null && !auth()->user()->is_admin)
-                <a href="{{route('organization_panel.panel',['id' => auth()->user()->id])}}" class="btn btn-inline post-btn">
-                    <i class="fas fa-person-booth"></i>
-                    <span>Your profile</span>
+            @if(!Auth::user())
+                <a href="/forms" class="header-widget header-user">
+                    <img src="{{asset('images/user.png')}}" alt="user">
+                    <span>Login / Register</span>
                 </a>
-                    @else
-                        <a href="/forms" class="btn btn-inline post-btn">
-                            <i class="fas fa-person-booth"></i>
-                            <span>Login</span>
-                        </a>
+            @else()
+                <form method="post" action="/logout" class="mt-6 space-y-6">
+                    @csrf
+                    <button class="btn btn-inline post-btn" type="submit"> Logout</button>
+
+                </form>
             @endif
+
+
         </div>
 
         @if(session()->has('pop_up'))

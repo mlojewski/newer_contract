@@ -62,7 +62,7 @@ class UserController extends Controller
         $user = User::where('id', $id)->first();
 
         if ($user->organization_id) {
-            $user = User::with('organization')->with('ads')->where('id', $id)->first();
+            $user = User::with('organization')->with(['ads' => ['personTypes']])->where('id', $id)->first();
 
             return view('user.organization_show', ['user' => $user]);
         } elseif ($user->person_id) {
