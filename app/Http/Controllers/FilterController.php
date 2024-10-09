@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Ad;
 use App\Models\Country;
+use App\Models\Language;
 use App\Models\PersonType;
 use App\Models\Sport;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FilterController extends Controller
@@ -85,6 +87,60 @@ class FilterController extends Controller
             'sports' => $sports,
             'countries' => $countries,
             'person_types' => $personTypes,
+        ]);
+    }
+
+    public function personFilter(Request $request)
+    {
+
+        $users = User::with(['Person' => ['Sport', 'Gender', 'Languages', 'Country', 'PersonType']])->whereNotNull('person_id')->get();
+        $people = $users->pluck('Person');
+
+
+        if ($request->sport || $request->sport != 0) {
+            foreach ($people as $key => $person) {
+                if ($person->sport_id != $request->sport) {
+                    unset($people[$key]);
+                }
+            }
+        }
+
+        if ($request->gender || $request->gender != 0) {
+            foreach ($people as $key => $person) {
+                if ($person->gender_id != $request->gender) {
+                    unset($people[$key]);
+                }
+            }
+        }
+
+        if ($request->country || $request->country != 0) {
+            foreach ($people as $key => $person) {
+                if ($person->country->name != $request->country) {
+                    unset($people[$key]);
+                }
+            }
+        }
+
+        if ($request->person_type || $request->person_type != 0) {
+            foreach ($people as $key => $person) {
+                if ($person->person_type_id != $request->person_type) {
+                    unset($people[$key]);
+                }
+            }
+        }
+
+        if ($request->language || $request->language != 0) {
+            $language = Language::where('id', $request->language)->first();
+
+            foreach ($people as $key => $person) {
+                if(!$person->languages->contains(Language::find($language->id))) {
+                    unset($people[$key]);
+                }
+            }
+        }
+
+        return view ('person.index', [
+            'people' => $people,
         ]);
     }
 }

@@ -59,7 +59,6 @@ class HomeController extends Controller
 
     function collectAdsForSports($sports, $personTypes)
     {
-
         // Loop through each sport
         $adCounts = $sports->map(function ($sport) use ($personTypes) {
             // Count the number of ads related to this sport
@@ -88,11 +87,21 @@ class HomeController extends Controller
                 ];
             }
 
+            // Sort the personTypes array by the count in descending order
+            usort($result['personTypes'], function ($a, $b) {
+                return $b['count'] - $a['count']; // Sort in descending order by count
+            });
+
             return $result;
         });
 
-        return $adCounts;
+        // Sort the entire result array by the total count in descending order
+        $sortedAdCounts = $adCounts->sortByDesc('total')->values();
+
+        return $sortedAdCounts;
     }
+
+
 
     public function collectPartnersWithLatestAds()
     {

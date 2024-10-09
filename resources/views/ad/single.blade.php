@@ -53,12 +53,12 @@
                         <div class="ad-details-author">
 
                             <div class="author-meta">
-                                <h4><a href="#">{{$ad->user->organization->name}}</a></h4>
+                                <h4><a href="{{route('user.show',['id' => $ad->user->id])}}">{{$ad->user->organization->name}}</a></h4>
                                 <h5>{{$ad->user->organization->location}}</h5>
 
                             </div>
                             <div class="author-widget">
-                                <a href="profile.html" title="Profile" class="fas fa-eye"></a>
+{{--                                <a href="profile.html" title="Profile" class="fas fa-eye"></a>--}}
                                 <a href="{{url($ad->user->organization->fb_url)}}" title="Facebook" class="fas fa-fax"></a>
                                 <a href="{{url($ad->user->organization->www_url)}}" title="WWW" class="fas fa-link"></a>
                                 <a href="{{url($ad->user->organization->li_url)}}" title="Linkedin" class="fas fa-linkedin"></a>
@@ -259,34 +259,36 @@
                         </div>
                         <p class="ad-details-desc">{{$ad->requirements}}</p>
                     </div>
-
-@if(auth()->user()->person_id != null || auth()->user()->is_admin == 1)
-                    <div class="common-card" id="form">
-                        <div class="card-header">
-                            <h5 class="card-title">Apply</h5>
-                        </div>
-                        <form class="review-form" action="{{route('recruitment.store')}}" method="POST">
-                            @csrf
-                            <p class="ad-details-desc">There is no need to fill in your contact data, as you are logged to you account, those will be sent automatically</p>
-                            <div class="review-form-grid">
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" name="sender" value={{Auth::id()}}>
-                                    <input type="hidden" class="form-control" name="ad" value={{$ad->id}}>
-                                    <input type="hidden" class="form-control" name="recipient" value={{$ad->user->id}}>
-                                    <input type="hidden" class="form-control" name="title" value="Application for your {{$ad->title}} ad">
+@if(Auth::id())
+                        @if(auth()->user()->person_id != null )
+                            <div class="common-card" id="form">
+                                <div class="card-header">
+                                    <h5 class="card-title">Apply</h5>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="message_content" class="form-control">Dear Sir/Madam, I am writing to apply for the {{$ad->title}} ad I found on New Contract. Feel free to reach out to me in order to discuss details.</textarea>
+                                <form class="review-form" action="{{route('recruitment.store')}}" method="POST">
+                                    @csrf
+                                    <p class="ad-details-desc">There is no need to fill in your contact data, as you are logged to you account, those will be sent automatically</p>
+                                    <div class="review-form-grid">
+                                        <div class="form-group">
+                                            <input type="hidden" class="form-control" name="sender" value={{Auth::id()}}>
+                                            <input type="hidden" class="form-control" name="ad" value={{$ad->id}}>
+                                            <input type="hidden" class="form-control" name="recipient" value={{$ad->user->id}}>
+                                            <input type="hidden" class="form-control" name="title" value="Application for your {{$ad->title}} ad">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="message_content" class="form-control">Dear Sir/Madam, I am writing to apply for the {{$ad->title}} ad I found on New Contract. Feel free to reach out to me in order to discuss details.</textarea>
 
+                                    </div>
+                                    <button type="submit" class="btn btn-inline review-submit">
+                                        <i class="fas fa-tint"></i>
+                                        <span>Send</span>
+                                    </button>
+                                </form>
                             </div>
-                            <button type="submit" class="btn btn-inline review-submit">
-                                <i class="fas fa-tint"></i>
-                                <span>Send</span>
-                            </button>
-                        </form>
-                    </div>
-                    @endif
+                        @endif
+@endif
+
                 </div>
             </div>
         </div>

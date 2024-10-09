@@ -141,76 +141,98 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-center-heading">
-                            <h2>Related This <span>Ads</span></h2>
+                            <h2>This organizations' <span>Ads</span></h2>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit aspernatur illum vel sunt libero voluptatum repudiandae veniam maxime tenetur.</p>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="related-slider slider-arrow">
-                            @foreach($user->ads as $ad)
+                <table class="table-list">
+                    <thead class="table-head">
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col" >Salary</th>
+                        <th scope="col">Target audience</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-body">
+                    @foreach($user->ads as $ad)
 
-                                <div class="product-card">
-                                    <div class="product-media">
-                                        <div class="product-img">
-                                            <img src="{{Storage::url($user->organization->logo->path)}}" alt="product">
-                                        </div>
-                                        <div class="product-type">
-                                            <span class="flat-badge sale">{{$ad->sport->name}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                       
-                                        <h5 class="product-title">
-                                            <a href="{{route('ad.single', ['id' => $ad->id])}}">{{$ad->title}}</a>
-                                        </h5>
-                                        <div class="product-meta">
-                                            <span><i class="fas fa-map-marker-alt"></i>{{$ad->city->name}}, {{$ad->city->country->name}}</span>
+                        <tr>
+                            <td class="table-price"> <a href="/ad/{{$ad->id}}">{{$ad->title}}</a></td>
+                            <td class="table-number">{{$ad->salary}} {{$ad->salary_per}}</td>
 
-                                        </div>
-                                        <div class="product-info">
-                                            <h5 class="product-price">{{$ad->salary}}<span>{{$ad->salary_per}}</span></h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                            <div class="product-card">
-                                <div class="product-media">
-                                    <div class="product-img">
-                                        <img src="{{Storage::url($user->organization->logo->path)}}" alt="product">
-                                    </div>
-                                    <div class="product-type">
-                                        <span class="flat-badge sale">sale</span>
-                                    </div>
-                                    <ul class="product-action">
-                                        <li class="view"><i class="fas fa-eye"></i><span>264</span></li>
-                                        <li class="click"><i class="fas fa-mouse"></i><span>134</span></li>
-                                        <li class="rating"><i class="fas fa-star"></i><span>4.5/7</span></li>
-                                    </ul>
-                                </div>
-                                <div class="product-content">
-                                    <ol class="breadcrumb product-category">
-                                        <li><i class="fas fa-tags"></i></li>
-                                        <li class="breadcrumb-item"><a href="#">Luxury</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Duplex House</li>
-                                    </ol>
-                                    <h5 class="product-title">
-                                        <a href="#">Lorem ipsum dolor sit amet consect adipisicing elit</a>
-                                    </h5>
-                                    <div class="product-meta">
-                                        <span><i class="fas fa-map-marker-alt"></i>Uttara, Dhaka</span>
-                                        <span><i class="fas fa-clock"></i>30 min ago</span>
-                                    </div>
-                                    <div class="product-info">
-                                        <h5 class="product-price">$1500<span>/negotiable</span></h5>
-                                        <div class="product-btn">
-                                            <a href="compare.html" title="Compare" class="fas fa-compress"></a>
-                                            <button type="button" title="Wishlist" class="far fa-heart"></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <td class="table-number">@foreach($ad->personTypes as $type) {{$type->name}} @endforeach</td>
+                        </tr>
+
+                    @endforeach
+                    </tbody>
+
+                </table>
+{{--                <div class="row">--}}
+{{--                    <div class="col-lg-12">--}}
+{{--                        <div class="related-slider slider-arrow">--}}
+{{--                            @foreach($user->ads as $ad)--}}
+
+{{--                                <div class="product-card">--}}
+{{--                                    <div class="product-media">--}}
+{{--                                        <div class="product-img">--}}
+{{--                                            <img src="{{Storage::url($user->organization->logo->path)}}" alt="product">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="product-type">--}}
+{{--                                            <span class="flat-badge sale">{{$ad->sport->name}}</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-content">--}}
+
+{{--                                        <h5 class="product-title">--}}
+{{--                                            <a href="{{route('ad.single', ['id' => $ad->id])}}">{{$ad->title}}</a>--}}
+{{--                                        </h5>--}}
+{{--                                        <div class="product-meta">--}}
+{{--                                            <span><i class="fas fa-map-marker-alt"></i>{{$ad->city->name}}, {{$ad->city->country->name}}</span>--}}
+
+{{--                                        </div>--}}
+{{--                                        <div class="product-info">--}}
+{{--                                            <h5 class="product-price">{{$ad->salary}}<span>{{$ad->salary_per}}</span></h5>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            @endforeach--}}
+{{--                            <div class="product-card">--}}
+{{--                                <div class="product-media">--}}
+{{--                                    <div class="product-img">--}}
+{{--                                        <img src="{{Storage::url($user->organization->logo->path)}}" alt="product">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-type">--}}
+{{--                                        <span class="flat-badge sale">sale</span>--}}
+{{--                                    </div>--}}
+{{--                                    <ul class="product-action">--}}
+{{--                                        <li class="view"><i class="fas fa-eye"></i><span>264</span></li>--}}
+{{--                                        <li class="click"><i class="fas fa-mouse"></i><span>134</span></li>--}}
+{{--                                        <li class="rating"><i class="fas fa-star"></i><span>4.5/7</span></li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-content">--}}
+{{--                                    <ol class="breadcrumb product-category">--}}
+{{--                                        <li><i class="fas fa-tags"></i></li>--}}
+{{--                                        <li class="breadcrumb-item"><a href="#">Luxury</a></li>--}}
+{{--                                        <li class="breadcrumb-item active" aria-current="page">Duplex House</li>--}}
+{{--                                    </ol>--}}
+{{--                                    <h5 class="product-title">--}}
+{{--                                        <a href="#">Lorem ipsum dolor sit amet consect adipisicing elit</a>--}}
+{{--                                    </h5>--}}
+{{--                                    <div class="product-meta">--}}
+{{--                                        <span><i class="fas fa-map-marker-alt"></i>Uttara, Dhaka</span>--}}
+{{--                                        <span><i class="fas fa-clock"></i>30 min ago</span>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-info">--}}
+{{--                                        <h5 class="product-price">$1500<span>/negotiable</span></h5>--}}
+{{--                                        <div class="product-btn">--}}
+{{--                                            <a href="compare.html" title="Compare" class="fas fa-compress"></a>--}}
+{{--                                            <button type="button" title="Wishlist" class="far fa-heart"></button>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 {{--                            <div class="product-card">--}}
 {{--                                <div class="product-media">--}}
 {{--                                    <div class="product-img">--}}
@@ -355,9 +377,9 @@
 {{--                                    </div>--}}
 {{--                                </div>--}}
 {{--                            </div>--}}
-                        </div>
-                    </div>
-                </div>
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </section>
     <!--=====================================
