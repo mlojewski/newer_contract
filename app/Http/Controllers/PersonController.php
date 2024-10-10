@@ -145,4 +145,30 @@ class PersonController extends Controller
          return redirect('/');
 
     }
+
+    public function index()
+    {
+        $users = User::with(['Person' => ['Sport', 'Gender', 'Languages', 'Country', 'PersonType']])->whereNotNull('person_id')->get();
+        $people = $users->pluck('Person');
+
+        $sports = Sport::all();
+        $genders = Gender::all();
+        $countries = Country::all();
+        $personTypes = PersonType::all();
+        $languages = Language::all();
+
+        return view ('person.index', [
+            'people' => $people,
+            'sports' => $sports,
+            'genders' => $genders,
+            'countries' => $countries,
+            'person_types' => $personTypes,
+            'languages' => $languages
+        ]);
+    }
+
+    public function show($id)
+    {
+        echo "dupa";
+    }
 }

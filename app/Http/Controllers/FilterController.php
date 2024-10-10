@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ad;
 use App\Models\Country;
+use App\Models\Gender;
 use App\Models\Language;
 use App\Models\PersonType;
 use App\Models\Sport;
@@ -138,9 +139,19 @@ class FilterController extends Controller
                 }
             }
         }
+        $sports = Sport::all();
+        $genders = Gender::all();
+        $countries = Country::all();
+        $personTypes = PersonType::all();
+        $languages = Language::all();
 
         return view ('person.index', [
             'people' => $people,
+            'sports' => $sports,
+            'genders' => $genders,
+            'countries' => $countries,
+            'person_types' => $personTypes,
+            'languages' => $languages
         ]);
     }
 }

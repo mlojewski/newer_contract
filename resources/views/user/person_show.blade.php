@@ -39,23 +39,21 @@
                             </div>
                             <div class="dash-intro">
                                 <h4>{{$user->person->name}} {{$user->person->last_name}}</h4>
-                                <h5>{{$user->person->PersonType->name}}</h5>
+                                <h5> {{$user->person->birth_date}}</h5>
                                 <ul class="dash-meta">
 {{--                                    <li>--}}
-{{--                                        <i class="fas fa-envelope"></i>--}}
+{{--                                        <i class="fab fa-instagram"></i>--}}
 {{--                                        <span>{{$user->email}}</span>--}}
 {{--                                    </li>--}}
                                     @if($user->person->fb_url)
                                         <li>
-                                            <i class="fas fa-envelope"></i>
+                                            <i class="fab fa-facebook"></i>
                                             <span>{{$user->person->fb_url}}</span>
                                         </li>
                                     @endif
                                     @if($user->person->ig_url)
-                                        <li>
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            <span>{{$user->person->ig_url}}</span>
-                                        </li>
+                                        <i class="fab fa-instagram"></i>
+                                        <span>{{$user->person->ig_url}}</span>
                                     @endif
                                 </ul>
                             </div>
@@ -64,8 +62,8 @@
                     <div class="col-lg-7">
                         <div class="dash-header-right">
                             <div class="dash-focus dash-list">
-                                <h2>{{$user->person->birth_date}}</h2>
-                                <p>Birth Date</p>
+                                <h2>{{$user->person->PersonType->name}}</h2>
+                                <p>Person type</p>
                             </div>
                             <div class="dash-focus dash-book">
                                 <h2>{{$user->person->gender->name}}</h2>
