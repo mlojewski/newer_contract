@@ -23,6 +23,8 @@ return new class extends Migration
             $table->integer('salary');
             $table->string('salary_per');
             $table->boolean('is_valid');
+            $table->boolean('is_dual');
+            $table->longText('dual_content')->nullable();
             $table->timestamps();
         });
     }

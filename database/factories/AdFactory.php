@@ -27,6 +27,8 @@ class AdFactory extends Factory
             'is_valid' => true,
             'city_id' => rand(1, 7),
             'sport_id' => rand(1, 5),
+            'is_dual' => false,
+            'dual_content' => fake()->realText(90),
             ];
     }
 }

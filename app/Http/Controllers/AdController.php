@@ -9,6 +9,7 @@ use App\Models\PersonType;
 use App\Models\Sport;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdController extends Controller
 {
@@ -63,6 +64,8 @@ class AdController extends Controller
         $ad->is_valid = false;
         $ad->city_id = $request->city;
         $ad->sport_id = $request->sport;
+        $ad->is_dual = $request->is_dual;
+        $ad->dual_content = $request->dual_content;
         $ad->user_id = auth()->id();
 
         $ad->save();
@@ -107,6 +110,8 @@ class AdController extends Controller
         $ad->salary = $request->salary;
         $ad->title = $request->title;
         $ad->sport_id = $request->sport;
+        $ad->is_dual = $request->is_dual;
+        $ad->dual_content = $request->dual_content;
 
         if ($request->salary_per) {
             $ad->salary_per = $request->salary_per;
@@ -132,7 +137,7 @@ class AdController extends Controller
         if ($user->is_admin == 1) {
             return redirect('/admin/ad_panel');
         }
-        return redirect('profile');
+        return redirect('/organization/panel/'.$ad->user_id)->with('pop_up', 'Ad updated and send to admin verification');
     }
 
     public function promoted()

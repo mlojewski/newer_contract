@@ -21,15 +21,17 @@
                                 <th scope="col">Title</th>
                                 <th scope="col">Is promoted</th>
                                 <th scope="col">Is active</th>
+                                <th scope="col">Is dual</th>
                                 <th scope="col" colspan="2">Actions</th>
                             </tr>
                             </thead>
                             <tbody class="table-body">
                             @foreach($ads as $ad)
                                 <tr>
-                                    <td class="table-price"> <a href="/ad/{{$ad->id}}">{{$ad->title}}</a></td>
+                                    <td class="table-price"> <a href="/ad/show/{{$ad->id}}">{{$ad->title}}</a></td>
                                     <td class="table-number">@if($ad->is_promoted != 1)No @else Yes @endif </td>
                                     <td class="table-number">@if($ad->is_valid != 1) No @else Yes @endif</td>
+                                    <td class="table-number">@if($ad->is_dual != 1) No @else Yes @endif</td>
                                     <td class="table-number">
                                         <form method="POST" action = "{{route('ad.delete', ['id' => $ad->id])}}">
                                             @csrf

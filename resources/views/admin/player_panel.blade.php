@@ -10,7 +10,7 @@
                 <div class="col-lg-12">
                     <div class="account-card">
                         <div class="account-title">
-                            <h3>Blogs</h3>
+                            <h3>People</h3>
                             <a href="{{route('person.create')}}">Add</a>
                         </div>
                         <ul class="account-card-list">

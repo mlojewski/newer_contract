@@ -259,6 +259,14 @@
                         </div>
                         <p class="ad-details-desc">{{$ad->requirements}}</p>
                     </div>
+                    @if($ad->is_dual == 1)
+                    <div class="common-card" id="review">
+                        <div class="card-header">
+                            <h5 class="card-title">Dual career</h5>
+                        </div>
+                        <p class="ad-details-desc">{{$ad->dual_content}}</p>
+                    </div>
+                    @endif
 @if(Auth::id())
                         @if(auth()->user()->person_id != null )
                             <div class="common-card" id="form">

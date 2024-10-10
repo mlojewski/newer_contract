@@ -75,9 +75,9 @@
                                         <label for="Fixed">Fixed</label><br>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-label">City</label>
+                                        <label class="form-label">City</label><br>
                                     <select name="city" id="city" required = "required">
                                         @foreach($cities as $city)
                                             <option value="{{$city->id}}">{{$city->name}}, {{$city->country->name}}</option>
@@ -85,7 +85,7 @@
                                     </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-label">Sport</label><br>
                                         <select name="sport" id="sport" required = "required">
@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                     <div class="form-group">
                                         <ul class="form-check-list">
                                             <li>
@@ -109,6 +109,21 @@
                                                 </li>
                                             @endforeach
                                         </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label" >Dual career?</label><br>
+                                        <input type="radio" id="No" name="is_dual" value="0" required>
+                                        <label for="No">No</label><br>
+                                        <input type="radio" id="Yes" name="is_dual" value="1">
+                                        <label for="Yes">Yes</label><br>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Dual career opportunity description</label>
+                                        <textarea name="dual_content" class="form-control" placeholder="If you provide a dual career opportunity with this offer, please provide the details"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group text-right">
