@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('www_url');
+            $table->string('name')->nullable();
+            $table->string('www_url')->nullable();
             $table->string('fb_url')->nullable();
             $table->string('ig_url')->nullable();
             $table->string('li_url')->nullable();
-            $table->string('location');
-            $table->text('description');
-            $table->text('billing_address');
-            $table->string('tax_id');
+            $table->string('location')->nullable();
+            $table->text('description')->nullable();
+            $table->text('billing_address')->nullable();
+            $table->string('tax_id')->nullable();
             $table->timestamps();
         });
     }
