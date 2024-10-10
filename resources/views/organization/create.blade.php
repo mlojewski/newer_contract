@@ -16,7 +16,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-label">Website address</label>
-                                        <input type="text" name="www_url" class="form-control" required = "required">
+                                        <input type="text" name="www_url" class="form-control" required = "required" placeholder="Place your URL here.">
                                     </div>
                                 </div>
 
@@ -48,7 +48,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-label">Location</label>
-                                        <input type="text" class="form-control"  name="location" placeholder="Enter your location here, preferably City, Country">
+                                        <input type="text" class="form-control" required="required"  name="location" placeholder="Enter your location here, preferably City, Country">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -101,7 +101,7 @@
                             <div class="form-group text-right">
                                 <button class="btn btn-inline">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>published your ad</span>
+                                    <span>Save and proceed</span>
                                 </button>
                             </div>
                         </div>
@@ -110,24 +110,21 @@
                 <div class="col-lg-4">
                     <div class="account-card alert fade show">
                         <div class="account-title">
-                            <h3>Safety Tips</h3>
+                            <h3>Tips</h3>
                             <button data-dismiss="alert">close</button>
                         </div>
                         <ul class="account-card-text">
                             <li>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit debitis odio perferendis placeat at aperiam.</p>
+                                <p>Providing full access to your social media accounts makes you more credible for future employees</p>
                             </li>
                             <li>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit debitis odio perferendis placeat at aperiam.</p>
+                                <p>The portal will accept olny graphic files such as jpg and png as your logos.</p>
                             </li>
                             <li>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit debitis odio perferendis placeat at aperiam.</p>
+                                <p>Provide a square version of your logo if possible</p>
                             </li>
                             <li>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit debitis odio perferendis placeat at aperiam.</p>
-                            </li>
-                            <li>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit debitis odio perferendis placeat at aperiam.</p>
+                                <p>Providing your tax information will make the invoicing process smoother. </p>
                             </li>
                         </ul>
                     </div>

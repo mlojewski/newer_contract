@@ -144,7 +144,7 @@
                                 <div class="form-group text-right">
                                     <button class="btn btn-inline">
                                         <i class="fas fa-check-circle"></i>
-                                        <span>published your ad</span>
+                                        <span>Save and proceed</span>
                                     </button>
                                 </div>
                             </div>
@@ -161,19 +161,16 @@
                         </div>
                         <ul class="account-card-text">
                             <li>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit debitis odio perferendis placeat at aperiam.</p>
+                                <p>Providing full access to your social media accounts makes you more credible for future employers.</p>
                             </li>
                             <li>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit debitis odio perferendis placeat at aperiam.</p>
+                                <p>The portal will accept olny graphic files such as jpg and png as your picture.</p>
                             </li>
                             <li>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit debitis odio perferendis placeat at aperiam.</p>
+                                <p>Please place a photo that you would put in your ID (your face rather than your full body).</p>
                             </li>
                             <li>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit debitis odio perferendis placeat at aperiam.</p>
-                            </li>
-                            <li>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit debitis odio perferendis placeat at aperiam.</p>
+                                <p>Your tax data will be hidden in the portal. </p>
                             </li>
                         </ul>
                     </div>

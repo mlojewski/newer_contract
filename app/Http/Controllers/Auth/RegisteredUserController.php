@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Organization;
+use App\Models\Person;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -30,6 +32,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
@@ -46,6 +49,20 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        if ($request->user_type =='organization') {
+            $organization = new Organization();
+            $organization->save();
+            $user->organization_id = $organization->id;
+            $user->save();
+
+            return redirect('organization/create');
+        } elseif ($request->user_type =='Person') {
+            $person = new Person();
+            $person->save();
+            $user->person_id = $person->id;
+            $user->save();
+            return redirect('person/create');
+        }
         return redirect(RouteServiceProvider::HOME);
     }
 }

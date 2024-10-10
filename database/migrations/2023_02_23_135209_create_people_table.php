@@ -15,18 +15,18 @@ return new class extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('last_name');
-            $table->string('residence');
-            $table->string('birth_date');
+            $table->string('name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('residence')->nullable();
+            $table->string('birth_date')->nullable();
             $table->string('video_url')->nullable();
             $table->string('fb_url')->nullable();
             $table->string('ig_url')->nullable();
             $table->string('sport_additional')->nullable();
-            $table->text('career');
-            $table->text('achievements');
-            $table->text('billing_address');
-            $table->string("tax_id");
+            $table->text('career')->nullable();
+            $table->text('achievements')->nullable();
+            $table->text('billing_address')->nullable();
+            $table->string("tax_id")->nullable();
             $table->timestamps();
         });
     }
