@@ -66,18 +66,17 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-label" >Salary rate</label><br>
-                                        Current = {{$ad->salary_per}}<br>
-                                        <input type="radio" id="Hourly" name="salary_per" value="Hourly" >
+                                        <input type="radio" id="Hourly" name="salary_per" value="Hourly" @if($ad->salary_per = "Hourly") checked @endif>
                                         <label for="Hourly">Hourly</label><br>
-                                        <input type="radio" id="Weekly" name="salary_per" value="Weekly">
+                                        <input type="radio" id="Weekly" name="salary_per" value="Weekly" @if($ad->salary_per = "Weekly") checked @endif>
                                         <label for="Weekly">Weekly</label><br>
-                                        <input type="radio" id="Monthly" name="salary_per" value="Monthly">
+                                        <input type="radio" id="Monthly" name="salary_per" value="Monthly" @if($ad->salary_per = "Monthly") checked @endif>
                                         <label for="Monthly">Monthly</label><br>
-                                        <input type="radio" id="Fixed" name="salary_per" value="Fixed">
+                                        <input type="radio" id="Fixed" name="salary_per" value="Fixed" @if($ad->salary_per = "Fixed") checked @endif>
                                         <label for="Fixed">Fixed</label><br>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-label">City</label><br>
                                         <select name="city" id="city">
@@ -88,7 +87,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-label">Sport</label><br>
                                         <select name="sport" id="sport" >
@@ -99,7 +98,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                     <div class="form-group">
                                         <ul class="form-check-list">
                                             <li>
@@ -112,6 +111,21 @@
                                                 </li>
                                             @endforeach
                                         </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-label" >Dual career?</label><br>
+                                        <input type="radio" id="No" name="is_dual" value="0" required @if($ad->is_dual == 0) checked @endif>
+                                        <label for="No">No</label><br>
+                                        <input type="radio" id="Yes" name="is_dual" value="1" @if($ad->is_dual == 1) checked @endif>
+                                        <label for="Yes">Yes</label><br>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Dual career opportunity description</label>
+                                        <textarea name="dual_content" class="form-control" placeholder="If you provide a dual career opportunity with this offer, please provide the details" value="{{$ad->dual_content}}"></textarea>
                                     </div>
                                 </div>
                                 @if(auth()->user()->is_admin)

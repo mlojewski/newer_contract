@@ -20,6 +20,7 @@
                                 <th scope="col">Owner</th>
                                 <th scope="col">Is promoted</th>
                                 <th scope="col">Is active</th>
+                                <th scope="col">Is dual</th>
                                 <th scope="col" colspan="2">Actions</th>
                             </tr>
                             </thead>
@@ -30,6 +31,7 @@
                                     <td class="table-price">{{$ad->user->name}} </td>
                                     <td class="table-number">{{$ad->is_promoted}} </td>
                                     <td class="table-number">{{$ad->is_valid}} </td>
+                                    <td class="table-number">{{$ad->is_dual}}</td>
                                     <td class="table-number">
                                         <form method="POST" action = "{{route('ad.delete', ['id' => $ad->id])}}">
                                             @csrf

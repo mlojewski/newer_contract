@@ -21,6 +21,7 @@
                                 <th scope="col">Owner</th>
                                 <th scope="col">Salary</th>
                                 <th scope="col">City</th>
+                                <th scope="col">Is dual</th>
                             </tr>
                             </thead>
 
@@ -32,6 +33,7 @@
 
                                 <td class="table-price">{{$ad->salary}}</td>
                                 <td class="table-number">{{$ad->city->name}} </tr>
+                            <td class="table-number">@if($ad->is_valid != 1) No @else Yes @endif</td>
                             @endforeach
                             </tbody>
                         </table>
@@ -45,6 +47,7 @@
                                 <th scope="col">Owner</th>
                                 <th scope="col">Salary</th>
                                 <th scope="col">City</th>
+                                <th scope="col">Is dual</th>
                             </tr>
                             </thead>
 
@@ -56,6 +59,7 @@
 
                                     <td class="table-price">{{$ad->salary}}</td>
                                     <td class="table-number">{{$ad->city->name}} </tr>
+                                <td class="table-number">@if($ad->is_valid != 1) No @else Yes @endif</td>
                             @endforeach
                             </tbody>
                         </table>
