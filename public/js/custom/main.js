@@ -6,15 +6,15 @@
 $(window).on("scroll", function(){
     var scrolling = $(this).scrollTop();
     var logo = document.getElementById('logo')
-    var dark = "{{ asset('poziom bez claim NEW CONTRACT.png')}}"
-    var light = "{{ asset('poziom bez claim NEW CONTRACT (1).png')}}"
+    var dark = "/images/logo-new-contract.png"
+    var light = "/images/logo-new-contract.png"
 
     if (scrolling > 100){
         $(".header-part").addClass("header-fixed");
-        logo.src = decodeURIComponent(light);
+        logo.src = light;
     }else{
         $(".header-part").removeClass("header-fixed");
-        logo.src = decodeURIComponent(dark);
+        logo.src = dark;
     }
 });
 

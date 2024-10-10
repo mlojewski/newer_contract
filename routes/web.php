@@ -138,6 +138,8 @@ Route::get('/ad/show/{id}', [AdController::class, 'show'])->name('ad.single');
 Route::get('ad/list', [AdController::class, 'index'])->name('ad.index');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.single');
+Route::get('/person/list', [PersonController::class, 'index'])->name('person.index');
+Route::get('person/show/{id}', [PersonController::class, 'show'])->name('person.show');
 
 Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
 
