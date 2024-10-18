@@ -6,8 +6,8 @@
 $(window).on("scroll", function(){
     var scrolling = $(this).scrollTop();
     var logo = document.getElementById('logo')
+    var light = "/images/logo-biale.png"
     var dark = "/images/logo-new-contract.png"
-    var light = "/images/logo-new-contract.png"
 
     if (scrolling > 100){
         $(".header-part").addClass("header-fixed");

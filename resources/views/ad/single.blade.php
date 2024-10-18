@@ -51,7 +51,9 @@
                             <h5 class="card-title">author info</h5>
                         </div>
                         <div class="ad-details-author">
-
+                            <a href="#" class="author-img active">
+                                <img src="{{Storage::url($ad->user->organization->logo->path)}}" alt="avatar">
+                            </a>
                             <div class="author-meta">
                                 <h4><a href="{{route('user.show',['id' => $ad->user->id])}}">{{$ad->user->organization->name}}</a></h4>
                                 <h5>{{$ad->user->organization->location}}</h5>
@@ -59,10 +61,10 @@
                             </div>
                             <div class="author-widget">
 {{--                                <a href="profile.html" title="Profile" class="fas fa-eye"></a>--}}
-                                <a href="{{url($ad->user->organization->fb_url)}}" title="Facebook" class="fas fa-fax"></a>
+                                <a href="{{url($ad->user->organization->fb_url)}}" title="Facebook" class="fab fa-facebook"></a>
                                 <a href="{{url($ad->user->organization->www_url)}}" title="WWW" class="fas fa-link"></a>
-                                <a href="{{url($ad->user->organization->li_url)}}" title="Linkedin" class="fas fa-linkedin"></a>
-                                <a href="{{url($ad->user->organization->ig_url)}}" title="Instagram" class="fas fa-instagram"></a>
+                                <a href="{{url($ad->user->organization->li_url)}}" title="Linkedin" class="fab fa-linkedin"></a>
+                                <a href="{{url($ad->user->organization->ig_url)}}" title="Instagram" class="fab fa-instagram"></a>
                             </div>
                             <ul class="author-list">
                                 <li><h6>Joined at</h6><p>{{$ad->user->organization->created_at->format('Y-m-d')}}</p></li>

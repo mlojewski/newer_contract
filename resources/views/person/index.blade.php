@@ -241,11 +241,12 @@
 {{--                    </div>--}}
 {{--                </div>--}}
                 <div class="row">
-                    @foreach($people as $person)
+
                     <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4">
                         <div class="product-card">
                             <div class="product-media">
                                 <div class="product-img">
+                                    @dump($person->photo->path)
                                     <img src="{{Storage::url($person->photo->path)}}" alt="photo">
                                 </div>
 {{--                                <div class="cross-vertical-badge product-badge">--}}

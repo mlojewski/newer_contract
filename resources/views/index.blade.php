@@ -70,9 +70,9 @@
                                 <span>featured</span>
                                 <i class="fas fa-book-open"></i>
                             </div>
-                            <button type="button" class="feature-wish">
-                                <i class="fas fa-heart"></i>
-                            </button>
+{{--                            <button type="button" class="feature-wish">--}}
+{{--                                <i class="fas fa-heart"></i>--}}
+{{--                            </button>--}}
                             <div class="feature-content">
                                 <ol class="breadcrumb feature-category">
 
@@ -187,20 +187,21 @@
                         <div class="product-card">
                             <div class="product-media">
                                 <div class="product-img">
-                                    <img src="{{Storage::url($partner->organization->logo->url)}}" alt="product">
+
+                                    <img src="{{Storage::url($partner->organization->logo->path)}}" alt="product">
                                 </div>
                                 <div class="cross-vertical-badge product-badge">
                                     <i class="fas fa-clipboard-check"></i>
-                                    <span>recommend</span>
+                                    <span>New!</span>
                                 </div>
                                 <div class="product-type">
                                     <span class="flat-badge booking">{{$partner->ads[0]->sport->name}}</span>
                                 </div>
-                                <ul class="product-action">
-                                    <li class="view"><i class="fas fa-eye"></i><span>264</span></li>
-                                    <li class="click"><i class="fas fa-mouse"></i><span>134</span></li>
-                                    <li class="rating"><i class="fas fa-star"></i><span>4.5/7</span></li>
-                                </ul>
+{{--                                <ul class="product-action">--}}
+{{--                                    <li class="view"><i class="fas fa-eye"></i><span>264</span></li>--}}
+{{--                                    <li class="click"><i class="fas fa-mouse"></i><span>134</span></li>--}}
+{{--                                    <li class="rating"><i class="fas fa-star"></i><span>4.5/7</span></li>--}}
+{{--                                </ul>--}}
                             </div>
                             <div class="product-content">
                                 <ol class="breadcrumb product-category">
@@ -209,7 +210,7 @@
                                     <li class="breadcrumb-item active" aria-current="page">Duplex House</li>
                                 </ol>
                                 <h5 class="product-title">
-                                    <a href="ad-details-left.html">{{$partner->ads[0]->title}}</a>
+                                    <a href="{{route('ad.single', ['id' => $partner->ads[0]->id])}}">{{$partner->ads[0]->title}}</a>
                                 </h5>
                                 <div class="product-meta">
                                     <span><i class="fas fa-map-marker-alt"></i>{{$partner->ads[0]->city->name}}</span>
@@ -432,10 +433,10 @@
                 </div>
 
             @endforeach
-
+        </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="center-20">
+                <div class="center-50">
                     <a href='{{route('ad.index')}}' class= "btn btn-inline">
                         <i class="fas fa-eye"></i>
                         <span>view all ads</span>
@@ -477,7 +478,7 @@
                             </div>
                             <div class="blog-content">
                                 <a href="#" class="blog-avatar">
-                                    <img src="{{asset('new_contract_favicon.png')}}" alt="avatar">
+                                    <img src="{{asset('/images/new_contract_favicon.png')}}" alt="avatar">
                                 </a>
                                 <ul class="blog-meta">
 
