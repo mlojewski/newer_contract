@@ -13,10 +13,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="single-content">
-                        <h2>Blog edit</h2>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">{{$blog->title}}</li>
-                        </ol>
+                        <h2>Org type edit</h2>
+
                     </div>
                 </div>
             </div>

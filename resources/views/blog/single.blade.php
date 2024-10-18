@@ -10,12 +10,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="single-content">
-                        <h2>blog details</h2>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="blog-list.html">blog-list</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">blog-details</li>
-                        </ol>
+                        <h2>{{$blog->title}}</h2>
+{{--                        <ol class="breadcrumb">--}}
+{{--                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>--}}
+{{--                            <li class="breadcrumb-item"><a href="blog-list.html">blog-list</a></li>--}}
+{{--                            <li class="breadcrumb-item active" aria-current="page">blog-details</li>--}}
+{{--                        </ol>--}}
                     </div>
                 </div>
             </div>

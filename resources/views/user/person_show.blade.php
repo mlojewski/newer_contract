@@ -35,6 +35,7 @@
                     <div class="col-lg-5">
                         <div class="dash-header-left">
                             <div class="dash-avatar">
+
                                 <a href="#"><img src="{{Storage::url($user->person->photo->path)}}" alt="avatar"></a>
                             </div>
                             <div class="dash-intro">
