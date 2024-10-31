@@ -125,12 +125,12 @@
                             <h5 class="card-title">safety tips</h5>
                         </div>
                         <div class="ad-details-safety">
-                            <p>Check the item before you buy</p>
-                            <p>Pay only after collecting item</p>
-                            <p>Beware of unrealistic offers</p>
-                            <p>Meet seller at a safe location</p>
-                            <p>Do not make an abrupt decision</p>
-                            <p>Be honest with the ad you post</p>
+                            <p>Feel free to verify the author</p>
+                            <p>Clarify job expectations in advance</p>
+                            <p>Research the country’s labor laws</p>
+                            <p>Check visa and work permit requirements</p>
+                            <p>Clarify job expectations in advance</p>
+                            <p>Review contract terms thoroughly</p>
                         </div>
                     </div>
 

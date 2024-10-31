@@ -54,7 +54,7 @@
                     <p>{{$content->featured_content}}</p>
                     <a href="/ad/filter?is_promoted=1" class="btn btn-inline">
                         <i class="fas fa-eye"></i>
-                        <span>Pokaż wszystkie promowane</span>
+                        <span>Show all featured ads</span>
                     </a>
                 </div>
             </div>
